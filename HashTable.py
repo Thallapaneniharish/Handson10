@@ -1,3 +1,5 @@
+import random
+import math
 class HashTable:
     def __init__(self):
         self.max_size = 2
