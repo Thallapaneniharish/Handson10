@@ -20,19 +20,27 @@ class DoublyLinkedList:
             self.head = node
 
     def delete_node(self, key):
+        if self.head is None:
+            print("Cannot delete from an empty list.")
+            return
+
         curr = self.head
 
         while curr:
             if curr.key == key:
                 if curr.prev:
                     curr.prev.next = curr.next
-                    curr.next.prev = curr.prev
                 else:
                     self.head = curr.next
-                    self.head.prev = None
+
+                if curr.next:
+                    curr.next.prev = curr.prev
+
                 print("Node with key " + str(key) + " deleted.")
                 return
+
             curr = curr.next
+
         print("Node with key " + str(key) + " not found")
 
     def print_list(self):
